@@ -26,7 +26,8 @@ int	main(int argc, char **argv)
 	a = ft_fill_stack(argc, argv);
 	stack_size = ft_get_size(a);
 	ft_set_index(a, stack_size + 1);
-	push_swap(&a, &b, stack_size);
-	free_stacks(&a, &b);
+	if(!ft_is_sorted(*a))
+		ft_push_swap(&a, &b, stack_size);
+	ft_free_stacks(&a, &b);
 	return(0);
 }
