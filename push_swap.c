@@ -14,21 +14,19 @@
 
 int	main(int argc, char **argv)
 {
-	if (argv < 2)
-	{
-	//	ft_putstr_fd("Error\n", STDERR_FILENO);
-		return (1);
-	}
 	t_stack *a;
 	t_stack *b;
-
-	if (!initilalize_stacks(&a, &b, argc, argv))
-	{
-	//	ft_putstr_fd("Error\n", STDERR_FILENO);
-		return(1);
-	}
-	if (!is_sorted(a))
-		sort(a, b);
-	free_stacks(a, b);
+	int	stack_size;
+	
+	if(argc < 2)
+		return (0);
+	if(ft_bad_input(argv))
+		ft_exit_error(NULL, NULL);
+	b = NULL;
+	a = ft_fill_stack(argc, argv);
+	stack_size = ft_get_size(a);
+	ft_set_index(a, stack_size + 1);
+	push_swap(&a, &b, stack_size);
+	free_stacks(&a, &b);
 	return(0);
 }
