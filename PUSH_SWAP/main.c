@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/21 21:52:57 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:34:05 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "push_swap.h"
 
-t_stack	*fill_stack_values(int ac, char **av)
+t_stack	*ft_fill_stack(int ac, char **av)
 {
 	t_stack		*stack_a;
 	long int	nb;
@@ -37,7 +37,7 @@ t_stack	*fill_stack_values(int ac, char **av)
 	return (stack_a);
 }
 
-void	assign_index(t_stack *stack_a, int stack_size)
+void	ft_set_index(t_stack *stack_a, int stack_size)
 {
 	t_stack	*ptr;
 	t_stack	*highest;
@@ -77,10 +77,11 @@ int	main(int ac, char **av)
 	if (!is_correct_input(av))
 		exit_error(NULL, NULL);
 	stack_b = NULL;
-	stack_a = fill_stack_values(ac, av);
+	stack_a = ft_fill_stack(ac, av);
 	stack_size = get_stack_size(stack_a);
-	assign_index(stack_a, stack_size + 1);
-	push_swap(&stack_a, &stack_b, stack_size);
+	ft_set_index(stack_a, stack_size + 1);
+	if (!ft_is_sorted(&stack_a))
+		ft_sort(&stack_a, &stack_b, stack_size);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

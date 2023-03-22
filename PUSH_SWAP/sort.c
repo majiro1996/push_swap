@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:54:13 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/22 01:56:52 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:01:00 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	shift_stack(t_stack **stack_a)
 	}
 }
 
-int	is_sorted(t_stack *stack)
+int	ft_is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
 	{
@@ -77,7 +77,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-void	sort(t_stack **stack_a, t_stack **stack_b)
+void	ft_sort_rest(t_stack **stack_a, t_stack **stack_b)
 {
 	push_all_save_three(stack_a, stack_b);
 	tiny_sort(stack_a);
@@ -87,16 +87,16 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		get_cost(stack_a, stack_b);
 		do_cheapest_move(stack_a, stack_b);
 	}
-	if (!is_sorted(*stack_a))
+	if (!ft_is_sorted(*stack_a))
 		shift_stack(stack_a);
 }
 
-static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
+static void	ft_sort(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
-	if (stack_size == 2 && !is_sorted(*stack_a))
-		do_sa(stack_a);
+	if (stack_size == 2)
+		ft_sx('a', stack_a);
 	else if (stack_size == 3)
-		tiny_sort(stack_a);
-	else if (stack_size > 3 && !is_sorted(*stack_a))
-		sort(stack_a, stack_b);
+		ft_sort_three(stack_a);
+	else if (stack_size > 3)
+		ft_sort_rest(stack_a, stack_b);
 }
