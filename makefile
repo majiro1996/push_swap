@@ -1,17 +1,17 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c \
-    check_argv.c \
-    cost.c \
-    operation_ex.c \
-    operations_2.c \
-    operations.c \
-    sort_2.c \
-    sort.c \
-    target.c \
-    utils_2.c \
-    utils.c \
+SRC =   main.c \
+        check_argv.c \
+        cost.c \
+        operation_ex.c \
+        operations_2.c \
+        operations.c \
+        sort_2.c \
+        sort.c \
+        target.c \
+        utils_2.c \
+        utils.c \
 
 OBJ = $(SRC:.c=.o)
 
