@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 01:44:34 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/22 10:58:06 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:44:13 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "push_swap.h"
 
-static void	ft_sx(char x, t_stack *stack)
+void	ft_sx(char x, t_stack *stack)
 {
 	int	tmp;
 

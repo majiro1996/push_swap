@@ -6,13 +6,13 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:06:43 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/23 18:10:52 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:59:56 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //sort_tiny//
-static int	find_highest_index(t_stack *stack)
+int	find_highest_index(t_stack *stack)
 {
 	int		index;
 
@@ -26,17 +26,17 @@ static int	find_highest_index(t_stack *stack)
 	return (index);
 }
 
-void	tiny_sort(t_stack **stack)
+void	ft_sort_three(t_stack **stack)
 {
 	int		highest;
 
-	if (is_sorted(*stack))
+	if (ft_is_sorted(*stack))
 		return ;
 	highest = find_highest_index(*stack);
 	if ((*stack)->index == highest)
-		do_ra(stack);
+		ft_rx('a', stack);
 	else if ((*stack)->next->index == highest)
-		do_rra(stack);
+		ft_rrx('a', stack);
 	if ((*stack)->index > (*stack)->next->index)
-		do_sa(stack);
+		ft_sx('a', *stack);
 }

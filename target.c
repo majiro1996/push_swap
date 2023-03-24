@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:09:36 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/23 18:09:53 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:45:02 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //position//
 
-static void	get_position(t_stack **stack)
+void	get_position(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		i;
@@ -51,7 +51,7 @@ int	get_lowest_index_position(t_stack **stack)
 	return (lowest_pos);
 }
 
-static int	get_target(t_stack **a, int b_idx,
+int	get_target(t_stack **a, int b_idx,
 								int target_idx, int target_pos)
 {
 	t_stack	*tmp_a;

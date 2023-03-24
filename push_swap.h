@@ -5,42 +5,84 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:44:49 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/20 15:46:10 by manujime         ###   ########.fr       */
+/*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
+/*   Updated: 2023/03/24 11:55:33 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
+# include <stddef.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include <limits.h>
-#include<stddef.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
-    int     *array;
-    int     size;
-    int     capacity;
-}   t_stack;
+	int				value;
+	int				index;
+	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
+	struct s_stack	*next;
+}	t_stack;
 
-void    initialize_stacks(t_stack *a, t_stack *b, int argc, char **argv);
-void    free_stacks(t_stack *a, t_stack *b);
-int     is_sorted(t_stack *a);
-void	sort(t_stack *stack_a, t_stack *stack_b);
-void    swap(t_stack *stack, char c);
-void    reverse_rotate(t_stack *stack, char c);
-void    rotate(t_stack *stack, char c);
-void    push(t_stack *dest, t_stack *src, char c);
-void    sort_three_or_less(t_stack *a, t_stack *b);
-void    sort_five_or_less(t_stack *a, t_stack *b);
-void    sort_larger_than_five(t_stack *a, t_stack *b);
-int     find_median(t_stack *stack, int size);
-int     find_smallest(t_stack *stack);
-int     get_chunk(t_stack *stack, int chunk_num, int n_chunks);
-int     get_n_chunks(int stack_size);
-int     ft_strlen(const char *s);
-void    ft_putendl_fd(char *s, int fd);
-
+//main
+t_stack		*ft_fill_stack(int ac, char **av);
+void		ft_set_index(t_stack *stack_a, int stack_size);
+//check_argv
+int			nbstr_cmp(const char *s1, const char *s2);
+int			ft_is_number(char *s);
+int			have_duplicates(char **av);
+int			ft_is_zero(char *av);
+int			is_correct_input(char **av);
+//cost
+void		get_cost(t_stack **stack_a, t_stack **stack_b);
+void		do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
+//operation_ex
+void		do_rev_rotate_both(t_stack **a, t_stack **b,
+				int *cost_a, int *cost_b);
+void		do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b);
+void		do_rotate_a(t_stack **a, int *cost);
+void		do_rotate_b(t_stack **b, int *cost);
+void		do_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
+//operations
+void		ft_rx(char x, t_stack **stack);
+void		ft_rr(t_stack **stack_a, t_stack **stack_b);
+void		ft_push_dx(char dx, t_stack **src, t_stack **dest);
+void		ft_rrx(char x, t_stack **stack);
+void		ft_rrr(t_stack **stack_a, t_stack **stack_b);
+//operations_2;
+void		ft_sx(char x, t_stack *stack);
+void		ft_ss(t_stack **stack_a, t_stack **stack_b);
+//sort_2
+int			find_highest_index(t_stack *stack);
+void		ft_sort_three(t_stack **stack);
+//sort
+void		push_all_save_three(t_stack **stack_a, t_stack **stack_b);
+void		shift_stack(t_stack **stack_a);
+int			ft_is_sorted(t_stack *stack);
+void		ft_sort_rest(t_stack **stack_a, t_stack **stack_b);
+void		ft_sort(t_stack **stack_a, t_stack **stack_b, int stack_size);
+//target
+void		get_position(t_stack **stack);
+int			get_lowest_index_position(t_stack **stack);
+int			get_target(t_stack **a, int b_idx,
+				int target_idx, int target_pos);
+void		get_target_position(t_stack **a, t_stack **b);
+//utils_2
+t_stack		*get_stack_bottom(t_stack *stack);
+t_stack		*get_stack_before_bottom(t_stack *stack);
+t_stack		*stack_new(int value);
+void		stack_add_bottom(t_stack **stack, t_stack *new);
+int			get_stack_size(t_stack	*stack);
+//utils
+void		free_stack(t_stack **stack);
+void		exit_error(t_stack **stack_a, t_stack **stack_b);
+long int	ft_atoi(const char *str);
+void		ft_putstr(char *str);
+int			nb_abs(int nb);
 #endif

@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/22 11:34:05 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/24 01:01:29 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	main(int ac, char **av)
 	stack_a = ft_fill_stack(ac, av);
 	stack_size = get_stack_size(stack_a);
 	ft_set_index(stack_a, stack_size + 1);
-	if (!ft_is_sorted(&stack_a))
+	if (!ft_is_sorted(stack_a))
 		ft_sort(&stack_a, &stack_b, stack_size);
 	free_stack(&stack_a);
 	free_stack(&stack_b);

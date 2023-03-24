@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 21:54:13 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/22 13:01:00 by manujime         ###   ########.fr       */
+/*   Created: 2023/03/24 00:17:25 by manujime          #+#    #+#             */
+/*   Updated: 2023/03/24 12:02:53 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "push_swap.h"
 
-static void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
+void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_size;
 	int	pushed;
@@ -41,7 +41,7 @@ static void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-static void	shift_stack(t_stack **stack_a)
+void	shift_stack(t_stack **stack_a)
 {
 	int	lowest_pos;
 	int	stack_size;
@@ -52,7 +52,7 @@ static void	shift_stack(t_stack **stack_a)
 	{
 		while (lowest_pos < stack_size)
 		{
-			do_rra(stack_a);
+			ft_rrx('a', stack_a);
 			lowest_pos++;
 		}
 	}
@@ -60,7 +60,7 @@ static void	shift_stack(t_stack **stack_a)
 	{
 		while (lowest_pos > 0)
 		{
-			do_ra(stack_a);
+			ft_rx('a', stack_a);
 			lowest_pos--;
 		}
 	}
@@ -80,7 +80,7 @@ int	ft_is_sorted(t_stack *stack)
 void	ft_sort_rest(t_stack **stack_a, t_stack **stack_b)
 {
 	push_all_save_three(stack_a, stack_b);
-	tiny_sort(stack_a);
+	ft_sort_three(stack_a);
 	while (*stack_b)
 	{
 		get_target_position(stack_a, stack_b);
@@ -91,10 +91,10 @@ void	ft_sort_rest(t_stack **stack_a, t_stack **stack_b)
 		shift_stack(stack_a);
 }
 
-static void	ft_sort(t_stack **stack_a, t_stack **stack_b, int stack_size)
+void	ft_sort(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size == 2)
-		ft_sx('a', stack_a);
+		ft_sx('a', *stack_a);
 	else if (stack_size == 3)
 		ft_sort_three(stack_a);
 	else if (stack_size > 3)

@@ -5,33 +5,71 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:37:28 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/20 13:40:09 by manujime         ###   ########.fr       */
+/*   Created: 2023/03/23 15:54:13 by manujime          #+#    #+#             */
+/*   Updated: 2023/03/23 17:59:42 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+//stack//
 
-int	ft_atoi(const char *str)
+t_stack	*get_stack_bottom(t_stack *stack)
 {
-	int	numb;
-	int	sign;
+	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
 
-	sign = 1;
-	numb = 0;
-	while ((*str == ' ') || (*str == '\t') || (*str == '\n')
-		|| (*str == '\v') || (*str == '\f') || (*str == '\r'))
-		str++;
-	if ((*str == '-') || (*str == '+'))
+t_stack	*get_stack_before_bottom(t_stack *stack)
+{
+	while (stack && stack->next && stack->next->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
+t_stack	*stack_new(int value)
+{
+	t_stack	*new;
+
+	new = malloc(sizeof * new);
+	if (!new)
+		return (NULL);
+	new->value = value;
+	new->index = 0;
+	new->pos = -1;
+	new->target_pos = -1;
+	new->cost_a = -1;
+	new->cost_b = -1;
+	new->next = NULL;
+	return (new);
+}
+
+void	stack_add_bottom(t_stack **stack, t_stack *new)
+{
+	t_stack	*tail;
+
+	if (!new)
+		return ;
+	if (!*stack)
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		*stack = new;
+		return ;
 	}
-	while (*str >= '0' && *str <= '9')
+	tail = get_stack_bottom(*stack);
+	tail->next = new;
+}
+
+int	get_stack_size(t_stack	*stack)
+{
+	int	size;
+
+	size = 0;
+	if (!stack)
+		return (0);
+	while (stack)
 	{
-		numb = (numb * 10) + (*str - '0');
-		str++;
+		stack = stack->next;
+		size++;
 	}
-	return (sign * numb);
+	return (size);
 }

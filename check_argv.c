@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:42:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/23 18:14:11 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:42:23 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	nbstr_cmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
 }
 
-static int	ft_is_number(char *s)
+int	ft_is_number(char *s)
 {
 	int	c;
 
@@ -53,7 +53,7 @@ static int	ft_is_number(char *s)
 	return (1);
 }
 
-static int	have_duplicates(char **av)
+int	have_duplicates(char **av)
 {
 	int	i;
 	int	j;
@@ -73,7 +73,7 @@ static int	have_duplicates(char **av)
 	return (0);
 }
 
-static int	ft_is_zero(char *av)
+int	ft_is_zero(char *av)
 {
 	int	i;
 
