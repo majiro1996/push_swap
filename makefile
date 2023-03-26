@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC =   main.c \
-        check_argv.c \
+        argv_check.c \
         cost.c \
         operation_ex.c \
         operations_2.c \

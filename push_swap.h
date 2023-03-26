@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/24 11:55:33 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:56:37 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,13 @@ typedef struct s_stack
 //main
 t_stack		*ft_fill_stack(int ac, char **av);
 void		ft_set_index(t_stack *stack_a, int stack_size);
-//check_argv
+//argv_parse
+char		**parse_args(char **argv, int argc);
+int			count_words(char *str);
+char		*find_next_word(char *str);
+char		*find_next_space(char *str);
+char		*trim_left(char *str);
+//argv_check
 int			nbstr_cmp(const char *s1, const char *s2);
 int			ft_is_number(char *s);
 int			have_duplicates(char **av);
