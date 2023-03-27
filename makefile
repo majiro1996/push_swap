@@ -1,5 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+LIBFT = Libft/libft.a
 
 SRC =   main.c \
         argv_check.c \
@@ -19,9 +20,11 @@ NAME = push_swap
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
+$(LIBFT):
+	@make extra -C Libft
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
