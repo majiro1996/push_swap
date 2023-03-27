@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:18 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/27 13:34:19 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/27 23:18:14 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,47 +37,4 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 		free_stack(stack_b);
 	write(2, "Error\n", 6);
 	exit (1);
-}
-
-long int	ft_atoi(const char *str)
-{
-	long int	nb;
-	int			isneg;
-	int			i;
-
-	nb = 0;
-	isneg = 1;
-	i = 0;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		isneg *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = (nb * 10) + (str[i] - '0');
-		i++;
-	}
-	return (nb * isneg);
-}
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-}
-
-int	nb_abs(int nb)
-{
-	if (nb < 0)
-		return (nb * -1);
-	return (nb);
 }

@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:31:59 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/27 13:32:47 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/27 23:12:49 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,9 @@ char				*ft_strchr_gnl(const char *s, int c);
 void				*ft_calloc_gnl(size_t count, size_t size);
 int					ft_strlen_gnl(const char *s);
 char				*ft_strjoin_gnl(char *s1, char *s2);
+//push
+long int			ft_atol(const char *str);
+int					ft_abs(int nbr);
+void				ft_putstr(char *str);
 
 #endif

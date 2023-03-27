@@ -1,12 +1,12 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT = Libft/libft.a
+LIBFT = libft/libft.a
 
 SRC =   main.c \
         argv_check.c \
         cost.c \
         operation_ex.c \
-        operations_2.c \
+        swap.c \
         operations.c \
         sort_2.c \
         sort.c \
@@ -24,7 +24,7 @@ $(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
-	@make extra -C Libft
+	@make extra -C libft
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
