@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/28 13:40:28 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:53:12 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void		do_rotate_b(t_stack **b, int *cost);
 void		do_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 //operations
 void		ft_rx(char x, t_stack **stack);
-void		ft_rr(t_stack **stack_a, t_stack **stack_b);
+void		ft_rr(char mute, t_stack **stack_a, t_stack **stack_b);
 void		ft_push_dx(char dx, t_stack **src, t_stack **dest);
 void		ft_rrx(char x, t_stack **stack);
-void		ft_rrr(t_stack **stack_a, t_stack **stack_b);
-//operations_2;
+void		ft_rrr(char mute, t_stack **stack_a, t_stack **stack_b);
+//swap
 void		ft_sx(char x, t_stack *stack);
-void		ft_ss(t_stack **stack_a, t_stack **stack_b);
+void		ft_ss(char mute, t_stack **stack_a, t_stack **stack_b);
 //sort_2
 int			find_highest_index(t_stack *stack);
 void		ft_sort_three(t_stack **stack);

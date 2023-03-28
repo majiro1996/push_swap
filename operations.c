@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:44:26 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/24 11:56:17 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:13:01 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ void	ft_rx(char x, t_stack **stack)
 		ft_putstr("rb\n");
 }
 
-void	ft_rr(t_stack **stack_a, t_stack **stack_b)
+void	ft_rr(char mute, t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rx(' ', stack_a);
 	ft_rx(' ', stack_b);
-	ft_putstr("rr\n");
+	if (mute != ' ')
+		ft_putstr("rr\n");
 }
 
 void	ft_push_dx(char dx, t_stack **src, t_stack **dest)
@@ -71,9 +72,10 @@ void	ft_rrx(char x, t_stack **stack)
 		ft_putstr("rrb\n");
 }
 
-void	ft_rrr(t_stack **stack_a, t_stack **stack_b)
+void	ft_rrr(char mute, t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rrx(' ', stack_a);
 	ft_rrx(' ', stack_b);
-	ft_putstr("rrr\n");
+	if (mute != ' ')
+		ft_putstr("rrr\n");
 }

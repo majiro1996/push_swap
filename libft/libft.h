@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:31:59 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/28 12:21:35 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:07:21 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int					ft_printptr(void *ptr);
 int					ft_printhex(unsigned long nbr, char f);
 int					ft_printuns(unsigned int nbr);
 //get_next_line
-char				*get_next_line_gnl(int fd);
+char				*get_next_line(int fd);
 char				*ft_strchr_gnl(const char *s, int c);
 void				*ft_calloc_gnl(size_t count, size_t size);
 int					ft_strlen_gnl(const char *s);

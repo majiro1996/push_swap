@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:14:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/24 11:54:54 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:01:51 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	do_rev_rotate_both(t_stack **a, t_stack **b,
 	{
 		(*cost_a)++;
 		(*cost_b)++;
-		ft_rrr(a, b);
+		ft_rrr('x', a, b);
 	}
 }
 
@@ -31,7 +31,7 @@ void	do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	{
 		(*cost_a)--;
 		(*cost_b)--;
-		ft_rr(a, b);
+		ft_rr('x', a, b);
 	}
 }
 

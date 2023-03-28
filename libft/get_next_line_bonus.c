@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 12:44:47 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/27 13:31:56 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:07:11 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*ft_save_remaining(char *buffer)
 	return (unused);
 }
 
-char	*get_next_line_gnl(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*buffer[257];
 	char		*line;
