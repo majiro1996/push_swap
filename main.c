@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/28 03:37:26 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 13:39:45 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "push_swap.h"
 
-t_stack	*ft_fill_stack(int ac, char **av)
+t_stack	*ft_fill_stack(int argc, char **argv)
 {
 	t_stack		*stack_a;
 	long int	nb;
@@ -23,9 +23,9 @@ t_stack	*ft_fill_stack(int ac, char **av)
 	stack_a = NULL;
 	nb = 0;
 	i = 1;
-	while (i < ac)
+	while (i < argc)
 	{
-		nb = ft_atol(av[i]);
+		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
 			exit_error(&stack_a, NULL);
 		if (i == 1)
@@ -37,47 +37,47 @@ t_stack	*ft_fill_stack(int ac, char **av)
 	return (stack_a);
 }
 
-void	ft_set_index(t_stack *stack_a, int stack_size)
+void	ft_set_index(t_stack *stack, int size)
 {
-	t_stack	*ptr;
+	t_stack	*node;
 	t_stack	*highest;
 	int		value;
 
-	while (--stack_size > 0)
+	while (--size > 0)
 	{
-		ptr = stack_a;
+		node = stack;
 		value = INT_MIN;
 		highest = NULL;
-		while (ptr)
+		while (node)
 		{
-			if (ptr->value == INT_MIN && ptr->index == 0)
-				ptr->index = 1;
-			if (ptr->value > value && ptr->index == 0)
+			if (node->value == INT_MIN && node->index == 0)
+				node->index = 1;
+			if (node->value > value && node->index == 0)
 			{
-				value = ptr->value;
-				highest = ptr;
-				ptr = stack_a;
+				value = node->value;
+				highest = node;
+				node = stack;
 			}
 			else
-				ptr = ptr->next;
+				node = node->next;
 		}
 		if (highest != NULL)
-			highest->index = stack_size;
+			highest->index = size;
 	}
 }
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		stack_size;
 
-	if (ac < 2)
+	if (argc < 2)
 		return (0);
-	if (!is_correct_input(av))
+	if (!ft_argv_check(argv))
 		exit_error(NULL, NULL);
 	stack_b = NULL;
-	stack_a = ft_fill_stack(ac, av);
+	stack_a = ft_fill_stack(argc, argv);
 	stack_size = get_stack_size(stack_a);
 	ft_set_index(stack_a, stack_size + 1);
 	if (!ft_is_sorted(stack_a))

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_argv.c                                       :+:      :+:    :+:   */
+/*   argv_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:42:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/24 11:42:23 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 13:38:01 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,13 @@
 
 //input_check// input_check_utils//
 
-int	nbstr_cmp(const char *s1, const char *s2)
+int	ft_nbr_str_cmp(const char *s1, const char *s2)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = i;
-	if (s1[i] == '+')
-	{
-		if (s2[j] != '+')
-			i++;
-	}
-	else
-	{
-		if (s2[j] == '+')
-			j++;
-	}
-	while (s1[i] != '\0' && s2[j] != '\0' && s1[i] == s2[j])
-	{
-		i++;
-		j++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
+	while (*s1 == '+')
+		s1++;
+	while (*s2 == '+')
+		s2++;
+	return (ft_strcmp(s1, s2));
 }
 
 int	ft_is_number(char *s)
@@ -44,7 +28,7 @@ int	ft_is_number(char *s)
 	int	c;
 
 	c = 0;
-	if ((s[c] == '+' || s[c] == '-') && s[c + 1] != '\0')
+	if ((s[c] == '+' || s[c] == '-') && s[c + 1])
 		c++;
 	while (s[c] && (s[c] >= '0' && s[c] <= '9'))
 		c++;
@@ -53,18 +37,18 @@ int	ft_is_number(char *s)
 	return (1);
 }
 
-int	have_duplicates(char **av)
+int	ft_dups(char **argv)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	while (av[i])
+	while (argv[i])
 	{
 		j = 1;
-		while (av[j])
+		while (argv[j])
 		{
-			if (j != i && nbstr_cmp(av[i], av[j]) == 0)
+			if (j != i && ft_nbr_str_cmp(argv[i], argv[j]) == 0)
 				return (1);
 			j++;
 		}
@@ -73,35 +57,22 @@ int	have_duplicates(char **av)
 	return (0);
 }
 
-int	ft_is_zero(char *av)
+int	ft_argv_check(char **argv)
 {
 	int	i;
+	int	zero_dups;
 
-	i = 0;
-	if (av[i] == '-' || av[i] == '+')
-		i++;
-	while (av[i] && av[i] == '0')
-		i++;
-	if (av[i] != '\0')
-		return (0);
-	return (1);
-}
-
-int	is_correct_input(char **av)
-{
-	int	i;
-	int	nb_zeros;
-
-	nb_zeros = 0;
+	zero_dups = 0;
 	i = 1;
-	while (av[i])
+	while (argv[i])
 	{
-		if (!ft_is_number(av[i]))
+		if (!ft_is_number(argv[i]))
 			return (0);
-		nb_zeros += ft_is_zero(av[i]);
+		if (ft_atol(argv[i]) == 0)
+			zero_dups++;
 		i++;
 	}
-	if (have_duplicates(av) || nb_zeros > 1)
+	if (ft_dups(argv) || zero_dups > 1)
 		return (0);
 	return (1);
 }

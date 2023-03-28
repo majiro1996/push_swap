@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/28 02:26:38 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 13:40:28 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ char		*find_next_word(char *str);
 char		*find_next_space(char *str);
 char		*trim_left(char *str);
 //argv_check
-int			nbstr_cmp(const char *s1, const char *s2);
+int			ft_nbr_str_cmp(const char *s1, const char *s2);
 int			ft_is_number(char *s);
 int			have_duplicates(char **av);
-int			ft_is_zero(char *av);
-int			is_correct_input(char **av);
+int			ft_argv_check(char **argv);
 //cost
 void		get_cost(t_stack **stack_a, t_stack **stack_b);
 void		do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
@@ -89,9 +88,6 @@ int			get_stack_size(t_stack	*stack);
 //utils
 void		free_stack(t_stack **stack);
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
-//long int	ft_atoi(const char *str);
-//void		ft_putstr(char *str);
-//int			nb_abs(int nb);
 char		**ft_parse(int argc, char **argv);
 int			count_strings(char **strings);
 
