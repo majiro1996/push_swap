@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/27 23:09:31 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 02:26:38 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,8 @@ void		free_stack(t_stack **stack);
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
 //long int	ft_atoi(const char *str);
 //void		ft_putstr(char *str);
-int			nb_abs(int nb);
+//int			nb_abs(int nb);
+char		**ft_parse(int argc, char **argv);
+int			count_strings(char **strings);
+
 #endif

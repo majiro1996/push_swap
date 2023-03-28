@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/24 01:01:29 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/28 03:37:26 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*ft_fill_stack(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		nb = ft_atoi(av[i]);
+		nb = ft_atol(av[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
 			exit_error(&stack_a, NULL);
 		if (i == 1)

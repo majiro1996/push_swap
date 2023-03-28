@@ -3,6 +3,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT = libft/libft.a
 
 SRC =   main.c \
+        argv_parse.c \
         argv_check.c \
         cost.c \
         operation_ex.c \
