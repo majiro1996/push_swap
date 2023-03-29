@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:18 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/28 22:30:17 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/29 13:04:24 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,17 @@ void	ft_set_index(t_stack *stack, int size)
 		if (highest != NULL)
 			highest->index = size;
 	}
+}
+
+void	ft_print_stack_values(t_stack *stack)
+{
+	t_stack	*current;
+
+	current = stack;
+	while (current != NULL)
+	{
+		ft_printf(" %d |", current->value);
+		current = current->next;
+	}
+	ft_printf("\n");
 }
