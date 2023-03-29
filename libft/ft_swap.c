@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 15:20:41 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/27 20:11:58 by manujime         ###   ########.fr       */
+/*   Created: 2023/03/29 00:56:11 by manujime          #+#    #+#             */
+/*   Updated: 2023/03/29 00:57:06 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	ft_print_stack_values(t_stack *stack)
+void	ft_swap(int *a, int *b)
 {
-	t_stack	*current;
+	int	aux;
 
-	current = stack;
-	while (current != NULL)
-	{
-		ft_printf(" %d |", current->value);
-		current = current->next;
-	}
-	ft_printf("\n");
+	aux = *a;
+	*a = *b;
+	*b = aux;
 }

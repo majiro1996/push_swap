@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 01:44:34 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/28 18:18:03 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/29 23:31:10 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,10 @@
 
 void	ft_sx(char x, t_stack *stack)
 {
-	int	tmp;
-
 	if (stack == NULL || stack->next == NULL)
 		return ;
-	tmp = stack->value;
-	stack->value = stack->next->value;
-	stack->next->value = tmp;
-	tmp = stack->index;
-	stack->index = stack->next->index;
-	stack->next->index = tmp;
+	ft_swap(&stack->value, &stack->next->value);
+	ft_swap(&stack->index, &stack->next->index);
 	if (x == 'a')
 		ft_putstr("sa\n");
 	if (x == 'b')

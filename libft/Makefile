@@ -6,7 +6,7 @@
 #    By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 12:18:06 by manujime          #+#    #+#              #
-#    Updated: 2023/03/27 23:07:15 by manujime         ###   ########.fr        #
+#    Updated: 2023/03/29 00:58:40 by manujime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,8 @@ EXTRA	=	ft_printf_nbr_ptr.c \
 			get_next_line_bonus.c \
 			get_next_line_utils_bonus.c \
 			ft_atol.c \
-			ft_abs.c
+			ft_abs.c \
+			ft_swap.c \
 			
 OBJ		= 	$(SRC:.c=.o)
 

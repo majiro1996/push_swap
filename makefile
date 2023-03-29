@@ -7,7 +7,7 @@ SRC =   main.c \
         argv_check.c \
         cost.c \
         operation_ex.c \
-        swap.c \
+        op_swap.c \
         operations.c \
         sort_2.c \
         sort.c \
@@ -20,7 +20,7 @@ BONSRC =	checker.c \
         	argv_check.c \
         	cost.c \
        		operation_ex.c \
-       		swap.c \
+       		op_swap.c \
        		operations.c \
         	sort_2.c \
         	sort.c \

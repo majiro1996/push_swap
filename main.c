@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/29 13:13:26 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 01:42:48 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
+	//if (argc == 2)
+	//	ft_parse(argv);
 	if (!ft_argv_check(argv))
 		exit_error(NULL, NULL);
 	stack_b = NULL;
-	stack_a = ft_fill_stack(argc, argv);
+	stack_a = ft_fill_stack(argc, argv, 0);
 	stack_size = get_stack_size(stack_a);
 	ft_set_index(stack_a, stack_size + 1);
 	if (!ft_is_sorted(stack_a))

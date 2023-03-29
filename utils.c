@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:18 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/29 13:04:24 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 01:40:51 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit (1);
 }
 
-t_stack	*ft_fill_stack(int argc, char **argv)
+t_stack	*ft_fill_stack(int argc, char **argv, int p)
 {
 	t_stack		*stack_a;
 	long int	nb;
@@ -47,7 +47,9 @@ t_stack	*ft_fill_stack(int argc, char **argv)
 
 	stack_a = NULL;
 	nb = 0;
-	i = 1;
+	i = 0;
+	if (p == 1)
+		i = 0;
 	while (i < argc)
 	{
 		nb = ft_atol(argv[i]);
@@ -64,27 +66,27 @@ t_stack	*ft_fill_stack(int argc, char **argv)
 
 void	ft_set_index(t_stack *stack, int size)
 {
-	t_stack	*node;
+	t_stack	*current;
 	t_stack	*highest;
 	int		value;
 
 	while (--size > 0)
 	{
-		node = stack;
+		current = stack;
 		value = INT_MIN;
 		highest = NULL;
-		while (node)
+		while (current)
 		{
-			if (node->value == INT_MIN && node->index == 0)
-				node->index = 1;
-			if (node->value > value && node->index == 0)
+			if (current->value == INT_MIN && current->index == 0)
+				current->index = 1;
+			if (current->value > value && current->index == 0)
 			{
-				value = node->value;
-				highest = node;
-				node = stack;
+				value = current->value;
+				highest = current;
+				current = stack;
 			}
 			else
-				node = node->next;
+				current = current->next;
 		}
 		if (highest != NULL)
 			highest->index = size;

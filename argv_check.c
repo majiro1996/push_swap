@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:42:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/28 13:38:01 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 00:47:07 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,18 @@ int	ft_dups(char **argv)
 {
 	int	i;
 	int	j;
+	int	zero;
 
+	zero = 0;
 	i = 1;
 	while (argv[i])
 	{
 		j = 1;
+		if (ft_atol(argv[i]) == 0)
+			zero++;
 		while (argv[j])
 		{
-			if (j != i && ft_nbr_str_cmp(argv[i], argv[j]) == 0)
+			if ((j != i && ft_nbr_str_cmp(argv[i], argv[j]) == 0) || zero > 1)
 				return (1);
 			j++;
 		}
@@ -60,19 +64,15 @@ int	ft_dups(char **argv)
 int	ft_argv_check(char **argv)
 {
 	int	i;
-	int	zero_dups;
 
-	zero_dups = 0;
 	i = 1;
 	while (argv[i])
 	{
 		if (!ft_is_number(argv[i]))
 			return (0);
-		if (ft_atol(argv[i]) == 0)
-			zero_dups++;
 		i++;
 	}
-	if (ft_dups(argv) || zero_dups > 1)
+	if (ft_dups(argv))
 		return (0);
 	return (1);
 }
