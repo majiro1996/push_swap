@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:18 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 20:33:42 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:35:38 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit (1);
 }
 
-t_stack	*ft_fill_stack(int argc, char **argv, int parsed)
+t_stack	*ft_fill_stack(char **argv, int parsed)
 {
 	t_stack		*stack_a;
 	long int	nb;
@@ -48,14 +48,12 @@ t_stack	*ft_fill_stack(int argc, char **argv, int parsed)
 	stack_a = NULL;
 	nb = 0;
 	i = parsed;
-	ft_printf("%i\n", argc);
-	ft_printf("%i\n", ft_count_strings(argv));
 	while (i < ft_count_strings(argv))
 	{
 		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
 			exit_error(&stack_a, NULL);
-		if (i == 1)
+		if (i == parsed)
 			stack_a = stack_new((int)nb);
 		else
 			stack_add_bottom(&stack_a, stack_new((int)nb));

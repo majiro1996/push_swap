@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:09:36 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/28 14:01:00 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:15:52 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,84 +16,84 @@
 
 void	get_position(t_stack **stack)
 {
-	t_stack	*tmp;
+	t_stack	*aux;
 	int		i;
 
-	tmp = *stack;
+	aux = *stack;
 	i = 0;
-	while (tmp)
+	while (aux)
 	{
-		tmp->pos = i;
-		tmp = tmp->next;
+		aux->pos = i;
+		aux = aux->next;
 		i++;
 	}
 }
 
 int	get_lowest_index_position(t_stack **stack)
 {
-	t_stack	*tmp;
+	t_stack	*aux;
 	int		lowest_index;
 	int		lowest_pos;
 
-	tmp = *stack;
+	aux = *stack;
 	lowest_index = INT_MAX;
 	get_position(stack);
-	lowest_pos = tmp->pos;
-	while (tmp)
+	lowest_pos = aux->pos;
+	while (aux)
 	{
-		if (tmp->index < lowest_index)
+		if (aux->index < lowest_index)
 		{
-			lowest_index = tmp->index;
-			lowest_pos = tmp->pos;
+			lowest_index = aux->index;
+			lowest_pos = aux->pos;
 		}
-		tmp = tmp->next;
+		aux = aux->next;
 	}
 	return (lowest_pos);
 }
 
 int	get_target(t_stack **a, int b_idx,
-								int target_idx, int target_pos)
+								int t_index, int target_pos)
 {
-	t_stack	*tmp_a;
+	t_stack	*aux;
 
-	tmp_a = *a;
-	while (tmp_a)
+	aux = *a;
+	while (aux)
 	{
-		if (tmp_a->index > b_idx && tmp_a->index < target_idx)
+		if (aux->index > b_idx && aux->index < t_index)
 		{
-			target_idx = tmp_a->index;
-			target_pos = tmp_a->pos;
+			t_index = aux->index;
+			target_pos = aux->pos;
 		}
-		tmp_a = tmp_a->next;
+		aux = aux->next;
 	}
-	if (target_idx != INT_MAX)
+	if (t_index != INT_MAX)
 		return (target_pos);
-	tmp_a = *a;
-	while (tmp_a)
+	aux = *a;
+	while (aux)
 	{
-		if (tmp_a->index < target_idx)
+		if (aux->index < t_index)
 		{
-			target_idx = tmp_a->index;
-			target_pos = tmp_a->pos;
+			t_index = aux->index;
+			target_pos = aux->pos;
 		}
-		tmp_a = tmp_a->next;
+		aux = aux->next;
 	}
 	return (target_pos);
 }
 
 void	get_target_position(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp_b;
+	t_stack	*aux_b;
 	int		target_pos;
 
-	tmp_b = *b;
+	aux_b = *b;
 	get_position(a);
 	get_position(b);
 	target_pos = 0;
-	while (tmp_b)
+	while (aux_b)
 	{
-		target_pos = get_target(a, tmp_b->index, INT_MAX, target_pos);
-		tmp_b->target_pos = target_pos;
-		tmp_b = tmp_b->next;
+		target_pos = get_target(a, aux_b->index, INT_MAX, target_pos);
+		aux_b->target_pos = target_pos;
+		aux_b = aux_b->next;
 	}
 }
