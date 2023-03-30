@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 20:02:35 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 20:45:29 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ int	main(int argc, char **argv)
 	}
 	else
 		parsed = argv;
-	/*int i = 0;
-	while (parsed[i])
-	{
-		ft_printf("%s\n", parsed[i]);
-		i++;
-	}*/
 	if (argc < 2)
 		return (0);
 	if (!ft_argv_check(parsed, is_parsed))

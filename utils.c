@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:18 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 20:09:35 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 20:33:42 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ t_stack	*ft_fill_stack(int argc, char **argv, int parsed)
 	stack_a = NULL;
 	nb = 0;
 	i = parsed;
-	while (i < argc)
+	ft_printf("%i\n", argc);
+	ft_printf("%i\n", ft_count_strings(argv));
+	while (i < ft_count_strings(argv))
 	{
 		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
