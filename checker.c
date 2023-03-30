@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:37:24 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 01:45:21 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 14:14:52 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 	if (!ft_argv_check(argv))
 		exit_error(NULL, NULL);
 	stack_b = NULL;
-	stack_a = ft_fill_stack(argc, argv, 0);
+	stack_a = ft_fill_stack(argc, argv);
 	op = get_next_line(0);
 	while (op)
 	{

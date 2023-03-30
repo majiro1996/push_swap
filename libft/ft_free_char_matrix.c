@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argv_parse.c                                       :+:      :+:    :+:   */
+/*   ft_free_char_matrix.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 16:53:59 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 16:54:11 by manujime         ###   ########.fr       */
+/*   Created: 2023/03/30 14:49:23 by manujime          #+#    #+#             */
+/*   Updated: 2023/03/30 14:53:39 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	ft_count_strings(char **strings)
+#include"libft.h"
+//frees all memory of a char ** 
+void	ft_free_char_matrix(char **arr)
 {
-	int	count;
+	char	**current;
 
-	count = 0;
-	while (*strings[count])
+	if (arr == NULL)
+		return ;
+	current = arr;
+	while (*current)
 	{
-		count++;
+		free(*current);
+		current++;
 	}
-	return (count);
-}
-
-char	**ft_parse(char **argv)
-{
-	char	**str;
-
-	str = ft_split(argv[1], ' ');
-	if (!*str)
-		exit_error(NULL, NULL);
-	return (str);
+	free(arr);
 }

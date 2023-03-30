@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:42:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 00:47:07 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:58:40 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ int	ft_dups(char **argv)
 	return (0);
 }
 
-int	ft_argv_check(char **argv)
+int	ft_argv_check(char **argv, int parsed)
 {
 	int	i;
 
-	i = 1;
+	i = parsed;
 	while (argv[i])
 	{
 		if (!ft_is_number(argv[i]))

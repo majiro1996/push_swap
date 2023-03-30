@@ -65,6 +65,6 @@ fclean: clean
 re: fclean all
 
 py:	all
-	python3 python_visualizer.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
+	python3 python_visualizer.py `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
 
 .PHONY: all clean fclean re py

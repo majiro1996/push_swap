@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 01:44:11 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 20:00:19 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char		*trim_left(char *str);
 int			ft_nbr_str_cmp(const char *s1, const char *s2);
 int			ft_is_number(char *s);
 int			have_duplicates(char **av);
-int			ft_argv_check(char **argv);
+int			ft_argv_check(char **argv, int parsed);
 //cost
 void		get_cost(t_stack **stack_a, t_stack **stack_b);
 void		do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
@@ -87,10 +87,10 @@ int			get_stack_size(t_stack	*stack);
 //utils
 void		free_stack(t_stack **stack);
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
-t_stack		*ft_fill_stack(int ac, char **av, int p);
+t_stack		*ft_fill_stack(int argc, char **argv, int parsed);
 void		ft_set_index(t_stack *stack_a, int stack_size);
 //parse
-void		ft_parse(char **argv);
-int			count_strings(char **strings);
-
+char		**ft_parse(char **argv);
+int			ft_count_strings(char **strings);
+void		ft_print_stack_values(t_stack *stack);
 #endif

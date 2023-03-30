@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:18 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 01:40:51 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 20:09:35 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit (1);
 }
 
-t_stack	*ft_fill_stack(int argc, char **argv, int p)
+t_stack	*ft_fill_stack(int argc, char **argv, int parsed)
 {
 	t_stack		*stack_a;
 	long int	nb;
@@ -47,9 +47,7 @@ t_stack	*ft_fill_stack(int argc, char **argv, int p)
 
 	stack_a = NULL;
 	nb = 0;
-	i = 0;
-	if (p == 1)
-		i = 0;
+	i = parsed;
 	while (i < argc)
 	{
 		nb = ft_atol(argv[i]);

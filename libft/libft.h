@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:31:59 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/29 00:58:12 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/30 14:54:03 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ int					ft_abs(int nbr);
 void				ft_putstr(char *str);
 int					ft_strcmp(const char *s1, const char *s2);
 void				ft_swap(int *a, int *b);
+void				ft_free_char_matrix(char **arr);
 
 #endif
