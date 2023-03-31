@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:44:26 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 00:20:47 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:19:00 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_rx(char x, t_stack **stack)
 
 	tmp = *stack;
 	*stack = (*stack)->next;
-	tail = get_stack_bottom(*stack);
+	tail = ft_get_last(*stack);
 	tmp->next = NULL;
 	tail->next = tmp;
 	if (x == 'a')
@@ -60,8 +60,8 @@ void	ft_rrx(char x, t_stack **stack)
 	t_stack	*tail;
 	t_stack	*before_tail;
 
-	tail = get_stack_bottom(*stack);
-	before_tail = get_stack_before_bottom(*stack);
+	tail = ft_get_last(*stack);
+	before_tail = ft_get_second_last(*stack);
 	tmp = *stack;
 	*stack = tail;
 	(*stack)->next = tmp;

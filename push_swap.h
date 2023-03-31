@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 21:18:59 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:44:17 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,13 @@ int			get_target(t_stack **a, int b_idx,
 				int target_idx, int target_pos);
 void		get_target_position(t_stack **a, t_stack **b);
 //utils_2
-t_stack		*get_stack_bottom(t_stack *stack);
-t_stack		*get_stack_before_bottom(t_stack *stack);
-t_stack		*stack_new(int value);
-void		stack_add_bottom(t_stack **stack, t_stack *new);
+t_stack		*ft_get_last(t_stack *stack);
+t_stack		*ft_get_second_last(t_stack *stack);
+t_stack		*ft_new_node(int value);
+void		ft_add_stack_end(t_stack **stack, t_stack *new);
 int			get_stack_size(t_stack	*stack);
 //utils
-void		free_stack(t_stack **stack);
+void		ft_free_stack(t_stack **stack);
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
 t_stack		*ft_fill_stack(char **argv, int parsed);
 void		ft_set_index(t_stack *stack_a, int stack_size);

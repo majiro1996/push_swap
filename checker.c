@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:37:24 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 10:11:50 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:45:02 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	ft_checker(char **argv, int is_parsed)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
 	return (0);
 }
 

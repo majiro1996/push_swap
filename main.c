@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 09:52:20 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:44:51 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_print_strings(char** arr)
     }
 }
 */
-
+/*fills stack a, */
 void	ft_push_swap(char **argv, int is_parsed)
 {
 	t_stack	*stack_a;
@@ -36,8 +36,8 @@ void	ft_push_swap(char **argv, int is_parsed)
 	ft_set_index(stack_a, stack_size + 1);
 	if (!ft_is_sorted(stack_a))
 		ft_sort(&stack_a, &stack_b, stack_size);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
 }
 
 int	main(int argc, char **argv)
