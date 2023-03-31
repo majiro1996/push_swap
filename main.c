@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 21:36:43 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/31 09:52:20 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "push_swap.h"
 
 /*
-void	print_strings(char** arr) 
+void	ft_print_strings(char** arr) 
 {
     for (int i = 0; arr[i] != NULL; i++) 
 	{
-        printf("**%s\n", arr[i]);
+        ft_printf("**%s\n", arr[i]);
     }
 }
 */

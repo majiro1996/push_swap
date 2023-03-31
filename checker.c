@@ -6,12 +6,14 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:37:24 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 14:14:52 by manujime         ###   ########.fr       */
+/*   Updated: 2023/03/31 10:11:50 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*checks if the imput string is an operation name, if it find a matching 
+name it's executed, if there's no match both stacks are freed, prints,
+"Error" and exit the program*/
 void	ft_do_op(char *op, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strcmp(op, "sa\n") == 0)
@@ -40,22 +42,19 @@ void	ft_do_op(char *op, t_stack **stack_a, t_stack **stack_b)
 		exit_error(stack_a, stack_b);
 }
 
-int	main(int argc, char **argv)
+/*fills stack, gets the input and executes the operations, 
+if the stack is sorted it prints "OK, if it's not it prints "KO"*/
+int	ft_checker(char **argv, int is_parsed)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	char	*op;
 
-	if (argc < 2)
-		return (0);
-	if (!ft_argv_check(argv))
-		exit_error(NULL, NULL);
 	stack_b = NULL;
-	stack_a = ft_fill_stack(argc, argv);
+	stack_a = ft_fill_stack(argv, is_parsed);
 	op = get_next_line(0);
 	while (op)
 	{
-		ft_printf("line: %s", op);
 		ft_do_op(op, &stack_a, &stack_b);
 		free(op);
 		op = get_next_line(0);
@@ -66,5 +65,29 @@ int	main(int argc, char **argv)
 		ft_printf("KO\n");
 	free_stack(&stack_a);
 	free_stack(&stack_b);
+	return (0);
+}
+
+/*checks if there are enough arguments, if they need to be parsed and if 
+there are errors in the input, then it calls the checker function*/
+int	main(int argc, char **argv)
+{
+	char	**parsed;
+	int		is_parsed;
+
+	is_parsed = 1;
+	parsed = NULL;
+	if (argc == 2)
+	{
+		parsed = ft_parse(argv);
+		is_parsed = 0;
+	}
+	else
+		parsed = argv;
+	if (argc < 2)
+		return (0);
+	if (!ft_argv_check(parsed, is_parsed))
+		exit_error(NULL, NULL);
+	ft_checker(parsed, is_parsed);
 	return (0);
 }
