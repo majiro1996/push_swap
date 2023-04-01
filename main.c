@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 15:44:51 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:51:12 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 
 #include "push_swap.h"
 
-/*
-void	ft_print_strings(char** arr) 
-{
-    for (int i = 0; arr[i] != NULL; i++) 
-	{
-        ft_printf("**%s\n", arr[i]);
-    }
-}
-*/
 /*fills stack a, */
 void	ft_push_swap(char **argv, int is_parsed)
 {
@@ -32,7 +23,7 @@ void	ft_push_swap(char **argv, int is_parsed)
 
 	stack_b = NULL;
 	stack_a = ft_fill_stack(argv, is_parsed);
-	stack_size = get_stack_size(stack_a);
+	stack_size = ft_get_stack_size(stack_a);
 	ft_set_index(stack_a, stack_size + 1);
 	if (!ft_is_sorted(stack_a))
 		ft_sort(&stack_a, &stack_b, stack_size);
@@ -40,6 +31,8 @@ void	ft_push_swap(char **argv, int is_parsed)
 	ft_free_stack(&stack_b);
 }
 
+/*checks if there are enough arguments, if they need to be parsed and if 
+there are errors in the input, then it calls the push_swap function*/
 int	main(int argc, char **argv)
 {
 	char	**parsed;

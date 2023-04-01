@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:18 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 16:04:23 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:32:26 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,13 @@ void	ft_free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (stack && *stack)
-	{
+	if (!stack && !(*stack))
 		return ;
-		while (*stack)
-		{
-			tmp = (*stack)->next;
-			free(*stack);
-			*stack = tmp;
-		}
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
 	*stack = NULL;
 }
@@ -42,29 +40,27 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit (1);
 }
 
-/*creates a linked list stack_a by converting valid integer strings in 
-the argv array to integer nodes.*/
+/*creates the stack as a linked list by iterating through the input
+strings and adding new nodes with the coresponging value, if the input 
+is not parsed it skips the program name*/
 t_stack	*ft_fill_stack(char **argv, int parsed)
 {
-	t_stack		*stack_a;
+	t_stack		*stack;
 	long int	nb;
 	int			i;
 	int			len;
 
 	len = ft_count_strings(argv);
-	stack_a = NULL;
+	stack = NULL;
 	nb = 0;
 	i = parsed;
 	while (i < len)
 	{
 		nb = ft_atoi(argv[i]);
-		if (i != parsed)
-			ft_add_stack_end(&stack_a, ft_new_node((int)nb));
-		else
-			stack_a = ft_new_node((int)nb);
+		ft_add_stack_end(&stack, ft_new_node((int)nb));
 		i++;
 	}
-	return (stack_a);
+	return (stack);
 }
 
 /*assigns an index value to each node, starting from the highest value 

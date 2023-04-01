@@ -6,24 +6,25 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:44:26 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 12:19:00 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:19:43 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//rotate//push//reverse_rotate//
-
+/*does nothing if there is less than two nodes, swaps the value and index of 
+the two first nodes of the stack passed as argument, prints the action name 
+based on a token char, if it's is not 'a' or 'b' it prints nothing*/
 void	ft_rx(char x, t_stack **stack)
 {
-	t_stack	*tmp;
-	t_stack	*tail;
+	t_stack	*aux;
+	t_stack	*last;
 
-	tmp = *stack;
+	aux = *stack;
 	*stack = (*stack)->next;
-	tail = ft_get_last(*stack);
-	tmp->next = NULL;
-	tail->next = tmp;
+	last = ft_get_last(*stack);
+	aux->next = NULL;
+	last->next = aux;
 	if (x == 'a')
 		ft_putstr("ra\n");
 	if (x == 'b')
@@ -40,14 +41,14 @@ void	ft_rr(char mute, t_stack **stack_a, t_stack **stack_b)
 
 void	ft_push_dx(char dx, t_stack **src, t_stack **dest)
 {
-	t_stack	*tmp;
+	t_stack	*aux;
 
 	if (*src == NULL)
 		return ;
-	tmp = (*src)->next;
+	aux = (*src)->next;
 	(*src)->next = *dest;
 	*dest = *src;
-	*src = tmp;
+	*src = aux;
 	if (dx == 'a')
 		ft_putstr("pa\n");
 	if (dx == 'b')
@@ -56,16 +57,16 @@ void	ft_push_dx(char dx, t_stack **src, t_stack **dest)
 
 void	ft_rrx(char x, t_stack **stack)
 {
-	t_stack	*tmp;
-	t_stack	*tail;
-	t_stack	*before_tail;
+	t_stack	*aux;
+	t_stack	*last;
+	t_stack	*before_last;
 
-	tail = ft_get_last(*stack);
-	before_tail = ft_get_second_last(*stack);
-	tmp = *stack;
-	*stack = tail;
-	(*stack)->next = tmp;
-	before_tail->next = NULL;
+	last = ft_get_last(*stack);
+	before_last = ft_get_second_last(*stack);
+	aux = *stack;
+	*stack = last;
+	(*stack)->next = aux;
+	before_last->next = NULL;
 	if (x == 'a')
 		ft_putstr("rra\n");
 	if (x == 'b')

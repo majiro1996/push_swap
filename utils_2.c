@@ -6,11 +6,12 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:54:13 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 12:41:53 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:50:32 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 //allocates a new node for the stack//
 t_stack	*ft_new_node(int value)
 {
@@ -29,21 +30,25 @@ t_stack	*ft_new_node(int value)
 	return (new);
 }
 
-int	get_stack_size(t_stack	*stack)
+/**/
+int	ft_get_stack_size(t_stack	*stack)
 {
 	int	size;
 
 	size = 0;
-	if (!stack)
-		return (0);
-	while (stack)
+	if (stack)
 	{
-		stack = stack->next;
-		size++;
+		while (stack)
+		{
+			stack = stack->next;
+			size++;
+		}
+		return (size);
 	}
-	return (size);
+	return (0);
 }
 
+/*iterates through the stack until it finds the last node and returns it*/
 t_stack	*ft_get_last(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
@@ -51,7 +56,8 @@ t_stack	*ft_get_last(t_stack *stack)
 	return (stack);
 }
 
-//get_stack_before_bottom
+/*iterates through the stack until it finds the second last node 
+and returns it*/
 t_stack	*ft_get_second_last(t_stack *stack)
 {
 	while (stack && stack->next && stack->next->next != NULL)
@@ -59,7 +65,8 @@ t_stack	*ft_get_second_last(t_stack *stack)
 	return (stack);
 }
 
-//stack_add_bottom
+/*adds node to the end of the stack, if there is no nodes in the stack
+ it adds the first node*/
 void	ft_add_stack_end(t_stack **stack, t_stack *new)
 {
 	t_stack	*end;

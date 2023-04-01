@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:58:53 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 11:15:38 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:55:16 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	get_cost(t_stack **stack_a, t_stack **stack_b)
 
 	aux_a = *stack_a;
 	aux_b = *stack_b;
-	size_a = get_stack_size(aux_a);
-	size_b = get_stack_size(aux_b);
+	size_a = ft_get_stack_size(aux_a);
+	size_b = ft_get_stack_size(aux_b);
 	while (aux_b)
 	{
 		aux_b->cost_b = aux_b->pos;

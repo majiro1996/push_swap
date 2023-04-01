@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 00:17:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/24 12:02:53 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:54:01 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 	int	pushed;
 	int	i;
 
-	stack_size = get_stack_size(*stack_a);
+	stack_size = ft_get_stack_size(*stack_a);
 	pushed = 0;
 	i = 0;
 	while (stack_size > 6 && i < stack_size && pushed < stack_size / 2)
@@ -46,7 +46,7 @@ void	shift_stack(t_stack **stack_a)
 	int	lowest_pos;
 	int	stack_size;
 
-	stack_size = get_stack_size(*stack_a);
+	stack_size = ft_get_stack_size(*stack_a);
 	lowest_pos = get_lowest_index_position(stack_a);
 	if (lowest_pos > stack_size / 2)
 	{

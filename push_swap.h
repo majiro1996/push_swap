@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 15:44:17 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:14:36 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ int			ft_argv_check(char **argv, int parsed);
 void		get_cost(t_stack **stack_a, t_stack **stack_b);
 void		do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
 //operation_ex
-void		do_rev_rotate_both(t_stack **a, t_stack **b,
-				int *cost_a, int *cost_b);
-void		do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b);
-void		do_rotate_a(t_stack **a, int *cost);
-void		do_rotate_b(t_stack **b, int *cost);
 void		do_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 //operations
 void		ft_rx(char x, t_stack **stack);
@@ -83,7 +78,7 @@ t_stack		*ft_get_last(t_stack *stack);
 t_stack		*ft_get_second_last(t_stack *stack);
 t_stack		*ft_new_node(int value);
 void		ft_add_stack_end(t_stack **stack, t_stack *new);
-int			get_stack_size(t_stack	*stack);
+int			ft_get_stack_size(t_stack	*stack);
 //utils
 void		ft_free_stack(t_stack **stack);
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
