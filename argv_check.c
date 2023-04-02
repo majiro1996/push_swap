@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:42:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 15:15:35 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:41:46 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ int	ft_is_number(char *s)
 	int	c;
 
 	c = 0;
-	if ((s[c] == '+' || s[c] == '-') && s[c + 1])
+	if (s[c] && (s[c] == '+' || s[c] == '-'))
 		c++;
-	while (s[c] && (s[c] >= '0' && s[c] <= '9'))
+	while (s[c])
+	{
+		if (!ft_isdigit(s[c]))
+			return (0);
 		c++;
-	if (s[c] != '\0' && (s[c] < '0' && s[c] > '9'))
-		return (0);
+	}
 	return (1);
 }
 
@@ -70,11 +72,13 @@ int	ft_argv_check(char **argv, int parsed)
 	i = parsed;
 	while (argv[i])
 	{
+		if (ft_strcmp(argv[i], "") == 0)
+			return (0);
 		if (!ft_is_number(argv[i]))
 			return (0);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			exit_error(NULL, NULL);
+			return (0);
 		i++;
 	}
 	if (ft_dups(argv))

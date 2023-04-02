@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:37:24 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/31 15:45:02 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:22:34 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,10 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (!ft_argv_check(parsed, is_parsed))
-		exit_error(NULL, NULL);
+	{
+		ft_printf("Error, nonvalid argument\n");
+		return (0);
+	}
 	ft_checker(parsed, is_parsed);
 	return (0);
 }

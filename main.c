@@ -6,14 +6,17 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/01 01:51:12 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:22:22 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//main //initialization//
-
 #include "push_swap.h"
-
+/*
+void	ft_leaks(void)
+{
+	system("leaks -q push_swap");
+}
+*/
 /*fills stack a, */
 void	ft_push_swap(char **argv, int is_parsed)
 {
@@ -40,6 +43,8 @@ int	main(int argc, char **argv)
 
 	is_parsed = 1;
 	parsed = NULL;
+	if (argc < 2)
+		return (0);
 	if (argc == 2)
 	{
 		parsed = ft_parse(argv);
@@ -47,10 +52,11 @@ int	main(int argc, char **argv)
 	}
 	else
 		parsed = argv;
-	if (argc < 2)
-		return (0);
 	if (!ft_argv_check(parsed, is_parsed))
-		exit_error(NULL, NULL);
+	{
+		ft_printf("Error, nonvalid argument\n");
+		return (0);
+	}
 	ft_push_swap(parsed, is_parsed);
 	return (0);
 }
