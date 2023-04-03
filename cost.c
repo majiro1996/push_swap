@@ -6,14 +6,14 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:58:53 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 16:38:41 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:17:49 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*set the cost to move each element to the top stack_b(cost_b)
-and the cost to move eack element to the target position in stack_a(cost_a)*/
+and the cost to move each element to the target position in stack_a(cost_a)*/
 void	ft_set_cost(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*aux_a;

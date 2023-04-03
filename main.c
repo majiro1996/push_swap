@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 18:42:56 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:16:35 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_leaks(void)
 	system("leaks -q push_swap");
 }
 */
-/* fiill*/
+
+/*initializes the stacks, and sorts if necessary*/
 void	ft_push_swap(char **argv, int is_parsed)
 {
 	t_stack	*stack_a;

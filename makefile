@@ -13,7 +13,7 @@ SRC =   main.c \
         sort.c \
         target.c \
         utils_2.c \
-        utils.c \
+        fill_and_free.c \
 
 BONSRC =	checker.c \
         	argv_parse.c \
@@ -26,7 +26,7 @@ BONSRC =	checker.c \
         	sort.c \
         	target.c \
         	utils_2.c \
-        	utils.c \
+        	fill_and_free.c.c \
 
 
 OBJ = $(SRC:.c=.o)

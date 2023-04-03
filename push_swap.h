@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 18:06:43 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:12:10 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_stack	*ft_get_second_last(t_stack *stack);
 t_stack	*ft_new_node(int value);
 void	ft_add_stack_end(t_stack **stack, t_stack *new);
 int		ft_get_stack_size(t_stack	*stack);
-//utils
+//fill_and_free
 void	ft_free_stack(t_stack **stack);
 t_stack	*ft_fill_stack(char **argv, int parsed);
 void	ft_set_index(t_stack *stack_a, int stack_size);
