@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:54:13 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/01 01:50:32 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:12:46 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ t_stack	*ft_new_node(int value)
 	return (new);
 }
 
-/**/
+/*iterates through the stack counting the number of nodes, if the pointer
+is null it returns 0;*/
 int	ft_get_stack_size(t_stack	*stack)
 {
 	int	size;

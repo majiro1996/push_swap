@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:18 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/02 23:42:36 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:16:19 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,6 @@ void	ft_free_stack(t_stack **stack)
 		*stack = tmp;
 	}
 	*stack = NULL;
-}
-
-/*exits the program with an error message and frees the memory allocated 
-to both stacks*/
-void	exit_error(t_stack **stack_a, t_stack **stack_b)
-{
-	if (stack_a == NULL || *stack_a != NULL)
-		ft_free_stack(stack_a);
-	if (stack_b == NULL || *stack_b != NULL)
-		ft_free_stack(stack_b);
-	write(2, "Error\n", 6);
-	exit (1);
 }
 
 /*creates the stack as a linked list by iterating through the input

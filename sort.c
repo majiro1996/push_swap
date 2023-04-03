@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 00:17:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/01 01:54:01 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 19:01:15 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 #include "push_swap.h"
 
-void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
+/*does pb to all values but three in stack_a, it sends the values with a
+lower index than the median are pushed first*/
+void	ft_push_all_but_three(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_size;
 	int	pushed;
@@ -23,7 +25,7 @@ void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 	stack_size = ft_get_stack_size(*stack_a);
 	pushed = 0;
 	i = 0;
-	while (stack_size > 6 && i < stack_size && pushed < stack_size / 2)
+	while (pushed < stack_size / 2 && stack_size > 6 && i < stack_size)
 	{
 		if ((*stack_a)->index <= stack_size / 2)
 		{
@@ -41,6 +43,7 @@ void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+/**/
 void	shift_stack(t_stack **stack_a)
 {
 	int	lowest_pos;
@@ -66,6 +69,8 @@ void	shift_stack(t_stack **stack_a)
 	}
 }
 
+/*iterates through the stack checking if no value has a higher 
+next than it's own*/
 int	ft_is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
@@ -77,20 +82,23 @@ int	ft_is_sorted(t_stack *stack)
 	return (1);
 }
 
+/*leaves three nodes in stack_a and sorts them, executes the most efective 
+operations and shift the stack until a is sorted*/
 void	ft_sort_rest(t_stack **stack_a, t_stack **stack_b)
 {
-	push_all_save_three(stack_a, stack_b);
+	ft_push_all_but_three(stack_a, stack_b);
 	ft_sort_three(stack_a);
 	while (*stack_b)
 	{
-		get_target_position(stack_a, stack_b);
-		get_cost(stack_a, stack_b);
-		do_cheapest_move(stack_a, stack_b);
+		ft_set_target_position(stack_a, stack_b);
+		ft_set_cost(stack_a, stack_b);
+		ft_choose_cheapest(stack_a, stack_b);
 	}
 	if (!ft_is_sorted(*stack_a))
 		shift_stack(stack_a);
 }
 
+/*chooses one of the sorting functions for each case*/
 void	ft_sort(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size == 2)

@@ -6,18 +6,22 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:47:40 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 00:22:22 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:42:56 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+checks leaks at runtime, intended for debugging only
+-add atexit(ft_leaks); at the start of the main function;
+*/
 /*
 void	ft_leaks(void)
 {
 	system("leaks -q push_swap");
 }
 */
-/*fills stack a, */
+/* fiill*/
 void	ft_push_swap(char **argv, int is_parsed)
 {
 	t_stack	*stack_a;
@@ -26,6 +30,8 @@ void	ft_push_swap(char **argv, int is_parsed)
 
 	stack_b = NULL;
 	stack_a = ft_fill_stack(argv, is_parsed);
+	if (is_parsed == 0)
+		ft_free_char_matrix(argv);
 	stack_size = ft_get_stack_size(stack_a);
 	ft_set_index(stack_a, stack_size + 1);
 	if (!ft_is_sorted(stack_a))
@@ -54,6 +60,8 @@ int	main(int argc, char **argv)
 		parsed = argv;
 	if (!ft_argv_check(parsed, is_parsed))
 	{
+		if (is_parsed == 0)
+			ft_free_char_matrix(parsed);
 		ft_printf("Error, nonvalid argument\n");
 		return (0);
 	}

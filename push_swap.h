@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/02 23:04:51 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:06:43 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,61 +31,45 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-//main
-
-//argv_parse
-char		**parse_args(char **argv, int argc);
-int			count_words(char *str);
-char		*find_next_word(char *str);
-char		*find_next_space(char *str);
-char		*trim_left(char *str);
 //argv_check
-int			ft_nbr_str_cmp(const char *s1, const char *s2);
-int			ft_is_number(char *s);
-int			have_duplicates(char **av);
-int			ft_argv_check(char **argv, int parsed);
+int		ft_argv_check(char **argv, int parsed);
 //cost
-void		get_cost(t_stack **stack_a, t_stack **stack_b);
-void		do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
+void	ft_set_cost(t_stack **stack_a, t_stack **stack_b);
+void	ft_choose_cheapest(t_stack **stack_a, t_stack **stack_b);
 //operation_ex
-void		do_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
+void	ft_operation_ex(t_stack **a, t_stack **b, int cost_a, int cost_b);
 //operations
-void		ft_rx(char x, t_stack **stack);
-void		ft_rr(char mute, t_stack **stack_a, t_stack **stack_b);
-void		ft_push_dx(char dx, t_stack **src, t_stack **dest);
-void		ft_rrx(char x, t_stack **stack);
-void		ft_rrr(char mute, t_stack **stack_a, t_stack **stack_b);
-//swap
-void		ft_sx(char x, t_stack *stack);
-void		ft_ss(char mute, t_stack **stack_a, t_stack **stack_b);
-//sort_2
-int			find_highest_index(t_stack *stack);
-void		ft_sort_three(t_stack **stack);
+void	ft_rx(char x, t_stack **stack);
+void	ft_rr(char mute, t_stack **stack_a, t_stack **stack_b);
+void	ft_push_dx(char dx, t_stack **src, t_stack **dest);
+void	ft_rrx(char x, t_stack **stack);
+void	ft_rrr(char mute, t_stack **stack_a, t_stack **stack_b);
+//op_swap
+void	ft_sx(char x, t_stack *stack);
+void	ft_ss(char mute, t_stack **stack_a, t_stack **stack_b);
+//sort_three
+//int		ft_get_highest_index(t_stack *stack);
+void	ft_sort_three(t_stack **stack);
 //sort
-void		push_all_save_three(t_stack **stack_a, t_stack **stack_b);
-void		shift_stack(t_stack **stack_a);
-int			ft_is_sorted(t_stack *stack);
-void		ft_sort_rest(t_stack **stack_a, t_stack **stack_b);
-void		ft_sort(t_stack **stack_a, t_stack **stack_b, int stack_size);
+void	shift_stack(t_stack **stack_a);
+int		ft_is_sorted(t_stack *stack);
+void	ft_sort_rest(t_stack **stack_a, t_stack **stack_b);
+void	ft_sort(t_stack **stack_a, t_stack **stack_b, int stack_size);
 //target
-void		get_position(t_stack **stack);
-int			get_lowest_index_position(t_stack **stack);
-int			get_target(t_stack **a, int b_idx,
-				int target_idx, int target_pos);
-void		get_target_position(t_stack **a, t_stack **b);
+int		get_lowest_index_position(t_stack **stack);
+void	ft_set_target_position(t_stack **a, t_stack **b);
 //utils_2
-t_stack		*ft_get_last(t_stack *stack);
-t_stack		*ft_get_second_last(t_stack *stack);
-t_stack		*ft_new_node(int value);
-void		ft_add_stack_end(t_stack **stack, t_stack *new);
-int			ft_get_stack_size(t_stack	*stack);
+t_stack	*ft_get_last(t_stack *stack);
+t_stack	*ft_get_second_last(t_stack *stack);
+t_stack	*ft_new_node(int value);
+void	ft_add_stack_end(t_stack **stack, t_stack *new);
+int		ft_get_stack_size(t_stack	*stack);
 //utils
-void		ft_free_stack(t_stack **stack);
-void		exit_error(t_stack **stack_a, t_stack **stack_b);
-t_stack		*ft_fill_stack(char **argv, int parsed);
-void		ft_set_index(t_stack *stack_a, int stack_size);
-//parse
-char		**ft_parse(char **argv);
-int			ft_count_strings(char **strings);
-void		ft_print_stack_values(t_stack *stack);
+void	ft_free_stack(t_stack **stack);
+t_stack	*ft_fill_stack(char **argv, int parsed);
+void	ft_set_index(t_stack *stack_a, int stack_size);
+//argv_parse
+char	**ft_parse(char **argv);
+int		ft_count_strings(char **strings);
+void	ft_print_stack_values(t_stack *stack);
 #endif

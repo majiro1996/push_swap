@@ -6,12 +6,13 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:53:59 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 00:24:30 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:23:54 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//counts the number of strings in a char**
 int	ft_count_strings(char **strings)
 {
 	int	count;
@@ -25,6 +26,7 @@ int	ft_count_strings(char **strings)
 	return (count);
 }
 
+/*splits the first argument into char** based on spaces*/
 char	**ft_parse(char **argv)
 {
 	char	**str;

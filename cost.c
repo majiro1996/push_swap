@@ -6,15 +6,15 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:58:53 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/01 01:55:16 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:38:41 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//cost//
-
-void	get_cost(t_stack **stack_a, t_stack **stack_b)
+/*set the cost to move each element to the top stack_b(cost_b)
+and the cost to move eack element to the target position in stack_a(cost_a)*/
+void	ft_set_cost(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*aux_a;
 	t_stack	*aux_b;
@@ -37,7 +37,9 @@ void	get_cost(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b)
+/*iterates through stack_b to get the cheapest node to move, and
+and calls operation_ex to choose whick move to do*/
+void	ft_choose_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*aux;
 	int		cheapest;
@@ -56,5 +58,5 @@ void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b)
 		}
 		aux = aux->next;
 	}
-	do_move(stack_a, stack_b, cost_a, cost_b);
+	ft_operation_ex(stack_a, stack_b, cost_a, cost_b);
 }

@@ -6,15 +6,15 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:09:36 by manujime          #+#    #+#             */
-/*   Updated: 2023/03/30 21:15:52 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:15:23 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//position//
-
-void	get_position(t_stack **stack)
+/*sets the position variable of each node to it's current 
+position in the stack*/
+void	ft_set_position(t_stack **stack)
 {
 	t_stack	*aux;
 	int		i;
@@ -29,6 +29,8 @@ void	get_position(t_stack **stack)
 	}
 }
 
+//iterates through the stack, finds the node with the lowest index and returns 
+//it's position 
 int	get_lowest_index_position(t_stack **stack)
 {
 	t_stack	*aux;
@@ -37,7 +39,7 @@ int	get_lowest_index_position(t_stack **stack)
 
 	aux = *stack;
 	lowest_index = INT_MAX;
-	get_position(stack);
+	ft_set_position(stack);
 	lowest_pos = aux->pos;
 	while (aux)
 	{
@@ -51,8 +53,8 @@ int	get_lowest_index_position(t_stack **stack)
 	return (lowest_pos);
 }
 
-int	get_target(t_stack **a, int b_idx,
-								int t_index, int target_pos)
+/**/
+int	ft_get_target(t_stack **a, int b_idx, int t_index, int target_pos)
 {
 	t_stack	*aux;
 
@@ -81,18 +83,18 @@ int	get_target(t_stack **a, int b_idx,
 	return (target_pos);
 }
 
-void	get_target_position(t_stack **a, t_stack **b)
+void	ft_set_target_position(t_stack **a, t_stack **b)
 {
 	t_stack	*aux_b;
 	int		target_pos;
 
 	aux_b = *b;
-	get_position(a);
-	get_position(b);
+	ft_set_position(a);
+	ft_set_position(b);
 	target_pos = 0;
 	while (aux_b)
 	{
-		target_pos = get_target(a, aux_b->index, INT_MAX, target_pos);
+		target_pos = ft_get_target(a, aux_b->index, INT_MAX, target_pos);
 		aux_b->target_pos = target_pos;
 		aux_b = aux_b->next;
 	}

@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 LIBFT = libft/libft.a
 
 SRC =   main.c \
@@ -9,7 +9,7 @@ SRC =   main.c \
         operation_ex.c \
         op_swap.c \
         operations.c \
-        sort_2.c \
+        sort_three.c \
         sort.c \
         target.c \
         utils_2.c \
@@ -22,7 +22,7 @@ BONSRC =	checker.c \
        		operation_ex.c \
        		op_swap.c \
        		operations.c \
-        	sort_2.c \
+        	sort_three.c \
         	sort.c \
         	target.c \
         	utils_2.c \
@@ -46,7 +46,7 @@ $(BONUS): $(LIBFT) $(OBONUS)
 	$(CC) $(CFLAGS) $(OBONUS) $(LIBFT) -o $(BONUS)
 
 $(LIBFT):
-	@make extra -C libft
+	make extra -C libft
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -60,7 +60,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	rm -f $(BONUS)
-	@make fclean -C libft
+	make fclean -C libft
 
 re: fclean all
 
