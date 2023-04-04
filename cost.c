@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:58:53 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/04 11:20:54 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:05:14 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_choose_cheapest(t_stack **stack_a, t_stack **stack_b)
 	cheapest = INT_MAX;
 	while (aux)
 	{
-		if (ft_abs(aux->cost_a) + ft_abs(aux->cost_b) < ft_abs(cheapest))
+		if (ft_abs(aux->cost_a) + ft_abs(aux->cost_b) < cheapest)
 		{
 			cheapest = ft_abs(aux->cost_b) + ft_abs(aux->cost_a);
 			cost_a = aux->cost_a;

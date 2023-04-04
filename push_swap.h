@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 21:50:00 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 22:12:10 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:01:59 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,8 @@ void	ft_rrr(char mute, t_stack **stack_a, t_stack **stack_b);
 void	ft_sx(char x, t_stack *stack);
 void	ft_ss(char mute, t_stack **stack_a, t_stack **stack_b);
 //sort_three
-//int		ft_get_highest_index(t_stack *stack);
 void	ft_sort_three(t_stack **stack);
 //sort
-void	shift_stack(t_stack **stack_a);
 int		ft_is_sorted(t_stack *stack);
 void	ft_sort_rest(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort(t_stack **stack_a, t_stack **stack_b, int stack_size);
