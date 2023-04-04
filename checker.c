@@ -6,11 +6,25 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:37:24 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 00:22:34 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:08:20 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+void	ft_leaks(void)
+{
+	system("leaks -q checker");
+}
+*/
+void	ft_exit_error(t_stack **stack_a, t_stack **stack_b)
+{
+	ft_printf("Error\n");
+	ft_free_stack(stack_a);
+	ft_free_stack(stack_b);
+	exit(1);
+}
+
 /*checks if the imput string is an operation name, if it find a matching 
 name it's executed, if there's no match both stacks are freed, prints,
 "Error" and exit the program*/
@@ -39,7 +53,7 @@ void	ft_do_op(char *op, t_stack **stack_a, t_stack **stack_b)
 	else if (ft_strcmp(op, "rrr\n") == 0)
 		ft_rrr(' ', stack_a, stack_b);
 	else
-		exit_error(stack_a, stack_b);
+		ft_exit_error(stack_a, stack_b);
 }
 
 /*fills stack, gets the input and executes the operations, 
