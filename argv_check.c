@@ -6,23 +6,23 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:42:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/02 23:41:46 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:53:15 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//input_check// input_check_utils//
-
+/*checks if two arguments are the same*/
 int	ft_nbr_str_cmp(const char *s1, const char *s2)
 {
-	while (*s1 == '+')
+	while (*s1 == '+' || *s1 == '0')
 		s1++;
-	while (*s2 == '+')
+	while (*s2 == '+' || *s2 == '0')
 		s2++;
 	return (ft_strcmp(s1, s2));
 }
 
+/*checks if an argument is a number*/
 int	ft_is_number(char *s)
 {
 	int	c;
@@ -39,6 +39,7 @@ int	ft_is_number(char *s)
 	return (1);
 }
 
+/*checks if there are duplicated arguments*/
 int	ft_dups(char **argv)
 {
 	int	i;
@@ -63,6 +64,7 @@ int	ft_dups(char **argv)
 	return (0);
 }
 
+/*cheks if the arguments are correct*/
 int	ft_argv_check(char **argv, int parsed)
 {
 	int			i;

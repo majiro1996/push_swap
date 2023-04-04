@@ -6,13 +6,13 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:09:36 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 18:15:23 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:31:20 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*sets the position variable of each node to it's current 
+/*-target-sets the position variable of each node to it's current 
 position in the stack*/
 void	ft_set_position(t_stack **stack)
 {
@@ -29,8 +29,8 @@ void	ft_set_position(t_stack **stack)
 	}
 }
 
-//iterates through the stack, finds the node with the lowest index and returns 
-//it's position 
+/*-target-iterates through the stack, finds the node with the lowest index 
+and returns it's position*/
 int	get_lowest_index_position(t_stack **stack)
 {
 	t_stack	*aux;
@@ -53,7 +53,7 @@ int	get_lowest_index_position(t_stack **stack)
 	return (lowest_pos);
 }
 
-/**/
+/*-target-*/
 int	ft_get_target(t_stack **a, int b_idx, int t_index, int target_pos)
 {
 	t_stack	*aux;
@@ -83,6 +83,7 @@ int	ft_get_target(t_stack **a, int b_idx, int t_index, int target_pos)
 	return (target_pos);
 }
 
+/*-target-sets the target position for each node in stack b*/
 void	ft_set_target_position(t_stack **a, t_stack **b)
 {
 	t_stack	*aux_b;

@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 00:17:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 19:01:15 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 10:51:41 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_push_all_but_three(t_stack **stack_a, t_stack **stack_b)
 	stack_size = ft_get_stack_size(*stack_a);
 	pushed = 0;
 	i = 0;
-	while (pushed < stack_size / 2 && stack_size > 6 && i < stack_size)
+	while (pushed < stack_size / 2 && (stack_size / 2) > 3 && i < stack_size)
 	{
 		if ((*stack_a)->index <= stack_size / 2)
 		{

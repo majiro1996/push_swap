@@ -6,14 +6,16 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:58:53 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/03 22:17:49 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:20:54 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*set the cost to move each element to the top stack_b(cost_b)
-and the cost to move each element to the target position in stack_a(cost_a)*/
+/*set the cost to move each element to the top of stack_b(cost_b)
+and the cost get the target position at the top of stack_a(cost_a)
+if the position of he node is lower than the median it's cost is set to be
+negative to signal the need of reverse rotate instead of rotate*/
 void	ft_set_cost(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*aux_a;
@@ -38,7 +40,7 @@ void	ft_set_cost(t_stack **stack_a, t_stack **stack_b)
 }
 
 /*iterates through stack_b to get the cheapest node to move, and
-and calls operation_ex to choose whick move to do*/
+and calls operation_ex to choose which operation to execute*/
 void	ft_choose_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*aux;
