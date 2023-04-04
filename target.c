@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:09:36 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/04 11:57:05 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:52:26 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	ft_get_target(t_stack **a, int b_idx, int t_index, int target_pos)
 	return (target_pos);
 }
 
-/*sets the target position for each node in stack b*/
+/*sets the target position for each node of stack b*/
 void	ft_set_target_position(t_stack **a, t_stack **b)
 {
 	t_stack	*aux_b;

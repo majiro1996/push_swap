@@ -6,15 +6,14 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:44:26 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/01 02:19:43 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:59:56 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*does nothing if there is less than two nodes, swaps the value and index of 
-the two first nodes of the stack passed as argument, prints the action name 
-based on a token char, if it's is not 'a' or 'b' it prints nothing*/
+/*rotates the first node of the stack to the last position, 
+prints the action name based on a token char*/
 void	ft_rx(char x, t_stack **stack)
 {
 	t_stack	*aux;
@@ -31,6 +30,7 @@ void	ft_rx(char x, t_stack **stack)
 		ft_putstr("rb\n");
 }
 
+/*rotates both stacks, prints the action name based on a token char*/
 void	ft_rr(char mute, t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rx(' ', stack_a);
@@ -39,6 +39,8 @@ void	ft_rr(char mute, t_stack **stack_a, t_stack **stack_b)
 		ft_putstr("rr\n");
 }
 
+/*push the first node of dest to src, prints the action name 
+based on a token char*/
 void	ft_push_dx(char dx, t_stack **src, t_stack **dest)
 {
 	t_stack	*aux;
@@ -55,24 +57,27 @@ void	ft_push_dx(char dx, t_stack **src, t_stack **dest)
 		ft_putstr("pb\n");
 }
 
+/*rotates the last node of the stack to the first position, 
+prints the action name based on a token char*/
 void	ft_rrx(char x, t_stack **stack)
 {
 	t_stack	*aux;
 	t_stack	*last;
-	t_stack	*before_last;
+	t_stack	*second_last;
 
 	last = ft_get_last(*stack);
-	before_last = ft_get_second_last(*stack);
+	second_last = ft_get_second_last(*stack);
+	second_last->next = NULL;
 	aux = *stack;
 	*stack = last;
 	(*stack)->next = aux;
-	before_last->next = NULL;
 	if (x == 'a')
 		ft_putstr("rra\n");
 	if (x == 'b')
 		ft_putstr("rrb\n");
 }
 
+/*reverse rotates both stacks, prints the action name based on a token char*/
 void	ft_rrr(char mute, t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rrx(' ', stack_a);

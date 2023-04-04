@@ -12,7 +12,7 @@ SRC =   main.c \
         sort_three.c \
         sort.c \
         target.c \
-        utils_2.c \
+        utils.c \
         fill_and_free.c \
 
 BONSRC =	checker.c \
@@ -25,7 +25,7 @@ BONSRC =	checker.c \
         	sort_three.c \
         	sort.c \
         	target.c \
-        	utils_2.c \
+        	utils.c \
         	fill_and_free.c.c \
 
 
